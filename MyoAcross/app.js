@@ -5,7 +5,7 @@ for (const box of document.querySelectorAll('.player')) {
   const video = box.querySelector('video');
   const start = Number(box.dataset.start), end = Number(box.dataset.end), duration = end - start;
   const playButton = box.querySelector('.play'), scrub = box.querySelector('.scrub');
-  const status = box.querySelector('.loading'), clock = box.querySelector('.time');
+  const status = box.querySelector('.loading');
   const state = { box, video, start, end, visible: false, loaded: false, userPaused: false, ready: false };
   players.push(state);
   scrub.max = duration;
@@ -13,7 +13,6 @@ for (const box of document.querySelectorAll('.player')) {
     const elapsed = Math.min(duration, Math.max(0, video.currentTime - start));
     scrub.value = elapsed;
     scrub.setAttribute('aria-valuetext', `${formatTime(elapsed)} of ${formatTime(duration)}`);
-    clock.textContent = `${formatTime(elapsed)} / ${formatTime(Math.round(duration))}`;
   };
   const load = () => {
     if (state.loaded) return;
@@ -72,12 +71,6 @@ for (const box of document.querySelectorAll('.player')) {
   box.querySelector('.center-play').addEventListener('click', toggle);
   video.addEventListener('click', toggle);
   scrub.addEventListener('input', () => { if (state.ready) { video.currentTime = start + Math.min(Number(scrub.value), duration - 0.05); display(); } });
-  box.querySelector('.restart').addEventListener('click', () => {
-    state.userPaused = false;
-    if (state.ready) video.currentTime = start;
-    else { load(); video.addEventListener('loadedmetadata', play, { once: true }); }
-    play();
-  });
   const fullscreen = box.querySelector('.fullscreen');
   if (!box.requestFullscreen && !video.webkitEnterFullscreen) fullscreen.hidden = true;
   fullscreen.addEventListener('click', async () => {

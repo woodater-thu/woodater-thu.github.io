@@ -3,3 +3,45 @@
 .text-section{max-width:1000px}.abstract-text{margin:0;line-height:1.75;font-size:var(--font-body)}.citation{margin:0;padding:24px;background:var(--soft);border:1px solid var(--line);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.65;font-size:var(--font-body)}.citation code{font-size:inherit}
 
 .author-notes{font-size:var(--font-body);color:var(--muted);margin:10px 0 0;line-height:1.6}.publication-links{display:flex;justify-content:center;gap:10px;margin-top:22px}.resource-link{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 19px;background:var(--ink);color:white;font-size:var(--font-body);line-height:1.4}.resource-link:disabled{opacity:1;cursor:default}.resource-link svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.citation{font-size:12px}.authors sup{display:inline-block;font-size:inherit;transform:scale(.7);transform-origin:left bottom;line-height:0}
+
+/* Current manuscript content and responsive resource layout. */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;margin:32px 0}.metrics strong{display:block;color:var(--green);font-size:34px;margin-bottom:12px}.metrics span{display:block;line-height:1.5}.result-note{line-height:1.75;color:var(--muted);margin:24px 0}.movie-links{line-height:2;padding-left:24px}.movie-links a{text-decoration:underline;text-underline-offset:4px}.nav nav{gap:20px}.publication-links{flex-wrap:wrap}@media(max-width:650px){.nav nav{overflow-x:auto;justify-content:flex-start;gap:16px}.nav nav a{white-space:nowrap}.metrics{grid-template-columns:1fr;gap:24px}.metrics strong{font-size:30px}.paper-title{font-size:24px}.citation{font-size:12px}}
+
+/* Compact demonstration-led page: no numbered chapters or navigation. */
+html{scroll-padding-top:24px}.hero{padding-top:40px;padding-bottom:35px}.chapter{padding-top:38px;padding-bottom:44px}.section-heading{margin-bottom:24px}.section-heading h2{margin:0;line-height:1.25}.framework{max-width:1040px}.authors{margin-top:22px}@media(max-width:650px){.hero{padding-top:26px;padding-bottom:24px}.chapter{padding-top:28px;padding-bottom:30px}.section-heading h2{font-size:25px}.section-heading{margin-bottom:20px}}
+
+.overview-points{text-align:left;color:var(--muted);line-height:1.65;margin:20px auto 0;padding-left:24px;max-width:690px}.overview-points li+li{margin-top:10px}
+
+#overview .section-heading{max-width:none}#overview .overview-points{max-width:none;box-sizing:border-box;width:100%;padding-left:24px}
+
+#overview .overview-intro{max-width:none;text-align:left;margin:22px 0 26px;color:var(--ink);line-height:1.75}
+.overview-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;text-align:left;margin-bottom:30px}
+.overview-card{padding:24px;background:var(--soft);border:1px solid var(--line);border-radius:10px}
+.overview-card h3{font-size:18px;line-height:1.4;color:var(--green);margin:0 0 12px;font-weight:600}
+#overview .overview-card p{font-size:var(--font-body);line-height:1.75;max-width:none;margin:0;color:var(--ink)}
+@media(max-width:650px){.overview-cards{grid-template-columns:1fr;gap:14px}.overview-card{padding:20px}.overview-card h3{font-size:17px}}
+
+/* Seamless white-background capability demonstration. */
+#capability .player{border:0;border-radius:0;box-shadow:none;padding-bottom:0;background:#fff}
+#capability .player video{aspect-ratio:1920/930;height:auto;background:#fff}
+#capability .controls{opacity:0;pointer-events:none;transition:opacity .18s ease;background:rgba(255,255,255,.94);border-top:0}
+#capability .player:hover .controls,#capability .player:focus-within .controls,#capability .player:not(.playing) .controls{opacity:1;pointer-events:auto}
+#capability .center-play{top:50%}
+#capability .player:fullscreen video{height:100vh;object-fit:contain}
+@media(hover:none){#capability .controls{opacity:1;pointer-events:auto}}
+
+/* Apply the seamless presentation to every demonstration. */
+.player{border:0;border-radius:0;box-shadow:none;padding-bottom:0;background:#fff}
+.controls{opacity:0;pointer-events:none;transition:opacity .18s ease;background:rgba(255,255,255,.94);border-top:0}
+.player:hover .controls,.player:focus-within .controls,.player:not(.playing) .controls{opacity:1;pointer-events:auto}
+.center-play{top:50%}
+.player:fullscreen video{height:100vh;object-fit:contain}
+@media(hover:none){.controls{opacity:1;pointer-events:auto}}
+
+/* All embedded videos retain their pixel scale after top-heading removal. */
+.player video{aspect-ratio:1920/930}
+
+/* Consistent compact rhythm; video frames sit closer to their slogans. */
+.chapter{padding-top:32px;padding-bottom:32px}.section-heading{margin-bottom:22px}
+#capability .section-heading,#image .section-heading,#asymmetry .section-heading,#biomechanics .section-heading{margin-bottom:10px}
+@media(max-width:650px){.chapter{padding-top:26px;padding-bottom:26px}.section-heading{margin-bottom:18px}#capability .section-heading,#image .section-heading,#asymmetry .section-heading,#biomechanics .section-heading{margin-bottom:8px}}
